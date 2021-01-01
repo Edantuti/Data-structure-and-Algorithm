@@ -9,7 +9,6 @@ linked.head.next = second;
 second.next = third;
 third.next = forth;
 
-linked.removeKey(4)
-
-linked.printList();
+let lenNode = linked.listLength();
+console.log(lenNode);
 

@@ -52,6 +52,15 @@ class LinkedList{
             h = h.next;
         }
     }
+    listLength(){
+        let counter = 0;
+        let h = this.head;
+        while(h != null){
+            counter++;
+            h = h.next;
+        }
+        return counter;
+    }
 }
 
 module.exports = new LinkedList()

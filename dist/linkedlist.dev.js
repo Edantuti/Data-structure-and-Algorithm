@@ -81,6 +81,19 @@ function () {
         h = h.next;
       }
     }
+  }, {
+    key: "listLength",
+    value: function listLength() {
+      var counter = 0;
+      var h = this.head;
+
+      while (h != null) {
+        counter++;
+        h = h.next;
+      }
+
+      return counter;
+    }
   }]);
 
   return LinkedList;
