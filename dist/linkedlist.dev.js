@@ -94,6 +94,11 @@ function () {
 
       return counter;
     }
+  }, {
+    key: "listReverse",
+    value: function listReverse() {
+      var nNode = null;
+    }
   }]);
 
   return LinkedList;

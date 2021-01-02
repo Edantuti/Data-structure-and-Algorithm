@@ -1,13 +1,12 @@
 "use strict";
 
-var linked = require('./linkedlist');
+var Stack = require('./stack');
 
-linked.head = linked.Node(4);
-var second = linked.Node(5);
-var third = linked.Node(6);
-var forth = linked.Node(7);
-linked.head.next = second;
-second.next = third;
-third.next = forth;
-var lenNode = linked.listLength();
-console.log(lenNode);
+var stack1 = Stack.create_stack();
+Stack.stackPush(stack1, 1);
+Stack.stackPush(stack1, 8);
+Stack.stackPush(stack1, 7);
+Stack.stackPush(stack1, 10);
+Stack.stackPush(stack1, 15);
+console.log(Stack.check_empty(stack1));
+Stack.stackPrint(Stack.stackSortTemp(stack1));

@@ -37,11 +37,74 @@ function () {
     key: "stackPush",
     value: function stackPush(stack, element) {
       stack.push(element);
-      console.log("The " + element + " has been added to the stack");
+    }
+  }, {
+    key: "stackPrint",
+    value: function stackPrint(stack) {
+      for (var element in stack) {
+        console.log(stack[element]);
+      }
+    }
+  }, {
+    key: "stackReverse",
+    value: function stackReverse(stack) {
+      if (!this.check_empty(stack)) {
+        var temp = this.stackPop(stack);
+        this.stackReverse(stack);
+        insertAtBottom(stack, temp);
+      }
+    }
+  }, {
+    key: "stackSort",
+    value: function stackSort(stack) {
+      if (!this.check_empty(stack)) {
+        var temp = this.stackPop(stack);
+        this.stackSort(stack);
+        sortedInsert(stack, temp);
+      }
+    }
+  }, {
+    key: "stackSortTemp",
+    value: function stackSortTemp(stack) {
+      var tempStack = this.create_stack();
+
+      while (!this.check_empty(stack)) {
+        var temp = this.stackPop(stack);
+
+        if (!this.check_empty(tempStack) && temp < tempStack[0]) {
+          this.stackPush(stack, this.stackPop(tempStack));
+        } else {
+          this.stackPush(tempStack, temp);
+        }
+      }
+
+      return tempStack;
     }
   }]);
 
   return Stack;
-}();
+}(); //recursive function for sorting stack
+
+
+function sortedInsert(stack, item) {
+  if (new Stack().check_empty(stack) || item > stack[-1]) {
+    new Stack().stackPush(stack, item);
+  } else {
+    var temp = new Stack().stackPop(stack);
+    sortedInsert(stack, item);
+    new Stack().stackPush(stack, temp);
+  }
+} //recursive function for reversing stack
+
+
+function insertAtBottom(stack, item) {
+  if (new Stack().check_empty(stack)) {
+    new Stack().stackPush(stack, item);
+  } else {
+    var temp = new Stack().stackPop(stack);
+    insertAtBottom(stack, item);
+    new Stack().stackPush(stack, temp);
+  }
+}
 
 module.exports = new Stack();

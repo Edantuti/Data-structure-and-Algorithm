@@ -1,14 +1,14 @@
-let linked = require('./linkedlist')
+let Stack = require('./stack');
 
-linked.head = linked.Node(4);
-let second = linked.Node(5);
-let third = linked.Node(6);
-let forth = linked.Node(7);
+let stack1 = Stack.create_stack();
 
-linked.head.next = second;
-second.next = third;
-third.next = forth;
+Stack.stackPush(stack1, 1);
+Stack.stackPush(stack1, 8);
+Stack.stackPush(stack1, 7);
+Stack.stackPush(stack1, 10);
+Stack.stackPush(stack1, 15);
 
-let lenNode = linked.listLength();
-console.log(lenNode);
+console.log(Stack.check_empty(stack1))
 
+
+Stack.stackPrint(Stack.stackSortTemp(stack1));

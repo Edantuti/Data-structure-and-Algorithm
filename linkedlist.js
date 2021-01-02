@@ -61,6 +61,9 @@ class LinkedList{
         }
         return counter;
     }
+    listReverse(){
+        let nNode = null;
+    }
 }
 
 module.exports = new LinkedList()
